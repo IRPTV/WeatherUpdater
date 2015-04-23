@@ -25,8 +25,8 @@ namespace WebsiteWeather
         {
             timer1.Enabled = false;
 
-            //try
-            //{
+            try
+            {
                 WeatherTableAdapter W_Ta = new WeatherTableAdapter();
                 MyDB.WeatherDataTable W_Dt = W_Ta.Select_Cities();
                 #region Current
@@ -86,9 +86,9 @@ namespace WebsiteWeather
 
 
                 label1.Text = DateTime.Now.ToString();
-            //}
-            //catch
-            //{ }
+            }
+            catch
+            { }
 
             timer1.Enabled = true;
 
