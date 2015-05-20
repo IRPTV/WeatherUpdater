@@ -71,11 +71,14 @@ namespace WebsiteWeather
                     var resultForeCast = readerForeCast.ReadToEnd();
                     streamForeCast.Dispose();
                     readerForeCast.Dispose();
+
                     F RvLstForeCast = JsonConvert.DeserializeObject<F>(resultForeCast);
                     W_Ta.Update_Forecast(RvLstForeCast.list[0].temp.min.ToString(),
                         RvLstForeCast.list[0].temp.max.ToString(),
                         RvLstForeCast.list[1].temp.min.ToString(),
                         RvLstForeCast.list[1].temp.max.ToString(),
+                        RvLstForeCast.list[0].weather[0].main.ToString(),
+                        RvLstForeCast.list[1].weather[0].main.ToString(),
                         RvLstForeCast.city.id.ToString());
                 }
 

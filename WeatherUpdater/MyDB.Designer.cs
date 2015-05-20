@@ -1367,13 +1367,15 @@ namespace WebsiteWeather.MyDBTableAdapters {
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "UPDATE       cities\r\nSET               Forecasts1Min=@F1Min,  forecasts1max=@F1Ma" +
-                "x,  forecasts2min=@F2Min,  forecasts2max=@F2Max\r\nWHERE        (CityId = @CityId)" +
-                "";
+                "x,  forecasts2min=@F2Min,  forecasts2max=@F2Max,StatusMain1=@StatusMain1,statusM" +
+                "ain2=@StatusMain2\r\nWHERE        (CityId = @CityId)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@F1Min", global::System.Data.SqlDbType.NVarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Forecasts1Min", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@F1Max", global::System.Data.SqlDbType.NVarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Forecasts1Max", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@F2Min", global::System.Data.SqlDbType.NVarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Forecasts2Min", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@F2Max", global::System.Data.SqlDbType.NVarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Forecasts2Max", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StatusMain1", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StatusMain1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StatusMain2", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StatusMain2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityId", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "CityId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -1457,7 +1459,7 @@ namespace WebsiteWeather.MyDBTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int Update_Forecast(string F1Min, string F1Max, string F2Min, string F2Max, string CityId) {
+        public virtual int Update_Forecast(string F1Min, string F1Max, string F2Min, string F2Max, string StatusMain1, string StatusMain2, string CityId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((F1Min == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -1483,11 +1485,23 @@ namespace WebsiteWeather.MyDBTableAdapters {
             else {
                 command.Parameters[3].Value = ((string)(F2Max));
             }
-            if ((CityId == null)) {
+            if ((StatusMain1 == null)) {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[4].Value = ((string)(CityId));
+                command.Parameters[4].Value = ((string)(StatusMain1));
+            }
+            if ((StatusMain2 == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(StatusMain2));
+            }
+            if ((CityId == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(CityId));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
